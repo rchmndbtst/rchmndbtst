@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+  UI Demo Page
+  - Purpose: lightweight demo showing a profile panel and an image
+    for GitHub profile
+  - Interactions:
+    * `#save-png` — captures the `.panel` and downloads a PNG
+    * `#theme-toggle` — toggles light/dark theme
+  - Files: styles.css, script.js, script.py (simple local server)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hi, I'm RIchmond 👋</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Main content panel: left (text) + right (image) -->
+    <main class="panel" role="main">
+      <section class="left">
+        <h1>Hi, I'm <span class="accent">Richmond</span></h1>
+        <p class="muted">Home Labber • Packet Pusher • Closet Admin</p>
+        <p class="message">
+          Want to share something? Capture the panel or switch theme below.
+        </p>
+      </section>
+
+      <aside class="right">
+        <img id="tennov-img" src="./tennov.png" alt="tennov" />
+      </aside>
+    </main>
+
+    <!-- Action buttons: capture panel or toggle theme -->
+    <div class="actions">
+      <button id="save-png">Save PNG</button>
+      <button id="theme-toggle" aria-pressed="false">Switch Theme</button>
+    </div>
+
+    <!-- Application logic (loads after DOM ready) -->
+    <script src="./script.js" defer></script>
+  </body>
+</html>
