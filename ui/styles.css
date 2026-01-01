@@ -1,0 +1,120 @@
+:root {
+  --accent: #3aa0ff;
+
+  --bg: #ffffff;
+  --panel-bg: #f6f8fa;
+  --text: #1f2933;
+  --muted: #1f2933;
+  --message: #778bac;
+}
+
+html[data-theme="dark"] {
+  --bg: #071018;
+  --panel-bg: #0b1114;
+  --text: #e6eef3;
+  --muted: #b8d4ff;
+  --message: #828689;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.panel {
+  max-width: 900px;
+  margin: 28px auto;
+  display: flex;
+  gap: 24px;
+  padding: 28px;
+  background: var(--panel-bg);
+  border-radius: 12px;
+  align-items: center;
+}
+
+.left {
+  flex: 1;
+}
+
+h1 {
+  font-size: clamp(20px, 3.5vw, 40px);
+  margin: 0 0 8px 0;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.message {
+  color: var(--message);
+}
+
+.right {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tennov-img {
+  width: 60%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 12px auto;
+  max-width: 900px;
+}
+
+.actions button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .panel {
+    flex-direction: column;
+    padding: 16px;
+    width: calc(100% - 32px);
+    margin: 12px;
+  }
+
+  /* On small screens show the right column first (image above text) */
+  .right {
+    order: 1;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .left {
+    order: 2;
+    text-align: center;
+  }
+
+  img#tennov-img {
+    height: 100%;
+  }
+}
