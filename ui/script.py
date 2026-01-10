@@ -4,6 +4,7 @@ Simple static file server for local testing of the UI.
 
 Usage:
     python3 script.py [--port PORT]
+    python3 script.py --port 8000
 
 This lightweight server binds to `localhost` by default to avoid exposing the
 dev server on external interfaces.
@@ -12,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import socketserver
+import http.server
 import sys
 
 def main() -> int:
@@ -21,7 +23,8 @@ def main() -> int:
 
     # Bind only to localhost to keep the server local to the machine.
     try:
-        with socketserver.TCPServer(('localhost', args.port)) as httpd:
+        handler = http.server.SimpleHTTPRequestHandler
+        with socketserver.TCPServer(('localhost', args.port), handler) as httpd:
             print(f"Serving HTTP on localhost port {args.port} (http://localhost:{args.port}/) ...")
             httpd.serve_forever()
     except KeyboardInterrupt:
